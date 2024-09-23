@@ -373,7 +373,9 @@ For example, to implement the above using `App`
 
 ```js
 const app = new App({ appId, privateKey });
-const { data: slug } = await app.octokit.rest.apps.getAuthenticated();
+const {
+  data: { slug },
+} = await app.octokit.rest.apps.getAuthenticated();
 const octokit = await app.getInstallationOctokit(123);
 await octokit.rest.issues.create({
   owner: "octocat",
